@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.DOCKER_REGISTRY}}/{{.IMAGE_NAME}}:{{.VERSION}}"
+  artifacts:
+  - imageName: jenkinsxio/jx-app-test-lifecycle
+    workspace: .
+    docker: {}
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+profiles:
+- name: dev
+  build:
+    tagPolicy:
+      envTemplate:
+        template: "{{.DOCKER_REGISTRY}}/{{.IMAGE_NAME}}:{{.DIGEST_HEX}}"
+    artifacts:
+    - imageName: jenkinsxio/jx-app-test-lifecycle
+  deploy:
+    helm:
+      releases:
+      - name: jx-app-test-lifecycle
+        chartPath: charts/jx-app-test-lifecycle
+        setValueTemplates:
+          image.repository: "{{.DOCKER_REGISTRY}}/{{.IMAGE_NAME}}"
+          image.tag: "{{.DIGEST_HEX}}"

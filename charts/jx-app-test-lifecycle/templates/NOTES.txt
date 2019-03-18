@@ -1,0 +1,11 @@
+
+To check the status of {{ .Chart.Name }}, try:
+
+    $ helm status {{ .Chart.Name }}
+
+Once 'jx get apps' (https://github.com/jenkins-x/jx/issues/2976) is implemented this can also be achieved using
+the jx CLI directly:
+
+    $ jx get app  {{ .Chart.Name }}
+
+Once installed {{ .Chart.Name }} will provide a stable means to test jx app commands.  This app provides no additional functionality.
