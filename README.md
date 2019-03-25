@@ -1,6 +1,6 @@
 # jx-app-test-lifecycle
 
-jx-app-test-lifecycle provides a means for BDD testing for [Jenkins X](https://jenkins-x.github.io/jenkins-x-website/) app commands.
+jx-app-test-lifecycle provides a means for BDD testing of [Jenkins X](https://jenkins-x.github.io/jenkins-x-website/) app commands.
 
 You must have a Jenkins X cluster to install and use the jx-app-test-lifecycle app.
 If you do not have a Jenkins X cluster and you would like to try it out, the [Jenkins X Google Cloud Tutorials](https://jenkins-x.io/getting-started/tutorials/) is a great place to start.
