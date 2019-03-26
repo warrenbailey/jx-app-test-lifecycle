@@ -94,7 +94,7 @@ release-branch:  ## Creates release branch and pushes release
 
 # Targets to get some Go tools
 $(FGT):
-	@$(GO_VARS) go get github.com/GeertJohan/fgt
+	GO111MODULE=off go get github.com/GeertJohan/fgt
 
 $(GOLINT):
-	@$(GO_VARS) go get github.com/golang/lint/golint
+	GO111MODULE=off go get github.com/golang/lint/golint
