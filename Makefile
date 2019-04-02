@@ -21,6 +21,9 @@ DOCKER_REGISTRY ?= docker.io
 FGT := $(GOPATH)/bin/fgt
 GOLINT := $(GOPATH)/bin/golint
 
+.PHONY : build
+build: all
+
 .PHONY : all
 all: linux test check ## Compiles, tests and checks sources
 
