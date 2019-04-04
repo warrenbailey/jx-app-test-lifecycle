@@ -21,6 +21,9 @@ DOCKER_REGISTRY ?= docker.io
 FGT := $(GOPATH)/bin/fgt
 GOLINT := $(GOPATH)/bin/golint
 
+.PHONY : build
+build: linux test  ## Compiles and tests
+
 .PHONY : all
 all: linux test check ## Compiles, tests and checks sources
 
@@ -67,22 +70,9 @@ help: ## Prints this help
 	@grep -E '^[^.]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-40s\033[0m %s\n", $$1, $$2}' | sort
 
 .PHONY: release
-release: linux test check update-release-version skaffold-build release-branch ## Creates a release
+release: linux test check skaffold-build release-branch ## Creates a release
 	cd charts/$(APP_NAME) && jx step helm release
 	jx step changelog --version v$(VERSION) -p $$(git merge-base $$(git for-each-ref --sort=-creatordate --format='%(objectname)' refs/tags | sed -n 2p) master) -r $$(git merge-base $$(git for-each-ref --sort=-creatordate --format='%(objectname)' refs/tags | sed -n 1p) master)
-
-.PHONY: update-release-version
-update-release-version: ## Updates the release version
-ifeq ($(OS),darwin)
-	sed -i "" -e "s/version:.*/version: $(VERSION)/" ./charts/$(APP_NAME)/Chart.yaml
-	sed -i "" -e "s/tag: .*/tag: $(VERSION)/" ./charts/$(APP_NAME)/values.yaml
-else ifeq ($(OS),linux)
-	sed -i -e "s/version:.*/version: $(VERSION)/" ./charts/$(APP_NAME)/Chart.yaml
-	sed -i -e "s/tag: .*/tag: $(VERSION)/" ./charts/$(APP_NAME)/values.yaml
-else
-	echo "platform $(OS) not supported to tag with"
-	exit -1
-endif
 
 .PHONY: release-branch
 release-branch:  ## Creates release branch and pushes release
