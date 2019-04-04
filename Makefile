@@ -74,6 +74,9 @@ release: linux test check update-release-version skaffold-build release-branch #
 	cd charts/$(APP_NAME) && jx step helm release
 	jx step changelog --version v$(VERSION) -p $$(git merge-base $$(git for-each-ref --sort=-creatordate --format='%(objectname)' refs/tags | sed -n 2p) master) -r $$(git merge-base $$(git for-each-ref --sort=-creatordate --format='%(objectname)' refs/tags | sed -n 1p) master)
 
+.PHONY : tag
+tag: update-release-version  
+
 .PHONY: update-release-version
 update-release-version: ## Updates the release version
 ifeq ($(OS),darwin)
