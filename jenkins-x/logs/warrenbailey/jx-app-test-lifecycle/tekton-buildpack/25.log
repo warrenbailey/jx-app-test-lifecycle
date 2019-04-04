@@ -1,0 +1,46 @@
+Step: build-step-credential-initializer-nvg78:
+
+{"level":"warn","ts":1554370349.0135448,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554370349.0171585,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-************-**-app-test-lifecy-m495w:
+
+{"level":"warn","ts":1554370350.3134944,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554370351.4501252,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/************/**-app-test-lifecycle\" @ \"tekton-buildpack\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+81d390e9c: No Major.Minor.Patch elements found
+time="2019-04-04T09:32:33Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-build-build:
+
+go: finding github.com/GeertJohan/fgt v0.0.0-20160120143236-262f7b11eec0
+go: finding golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c
+go: finding golang.org/x/lint v0.0.0-20190313153728-d0100b6bd8b3
+go: finding golang.org/x/tools v0.0.0-20190401205534-4c644d7e323d
+go: finding golang.org/x/sys v0.0.0-20190402054613-e4093980e83e
+go: finding golang.org/x/net v0.0.0-20190328230028-74de082e2cca
+go: finding golang.org/x/tools v0.0.0-20190311212946-11955173bddd
+go: finding golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a
+go: finding golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
+go: finding golang.org/x/text v0.3.0
+go: finding golang.org/x/net v0.0.0-20190311183353-d8887717615a
+go version go1.12.1 linux/amd64
+GO111MODULE=on GO15VENDOREXPERIMENT=1 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '' -o build/**-app-test-lifecycle cmd/main.go
+GO111MODULE=on GO15VENDOREXPERIMENT=1 CGO_ENABLED=0 go test -v github.com/jenkins-x-apps/**-app-test-lifecycle/cmd 
+?   	github.com/jenkins-x-apps/**-app-test-lifecycle/cmd	[no test files]
+Step: build-step-build-helm-build:
+
+No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository releases.
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
+Step: build-step-source-mkdir-************-**-app-test-lifecy-wcjts:
+
+{"level":"warn","ts":1554370395.5979564,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554370395.6216304,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /pvc/from-build-pack/workspace\""}
+Step: build-step-source-copy-************-**-app-test-lifecy-j5gft:
+
+{"level":"warn","ts":1554370397.212656,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554370397.2393746,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"cp -r /workspace/source/. /pvc/from-build-pack/workspace\""}
