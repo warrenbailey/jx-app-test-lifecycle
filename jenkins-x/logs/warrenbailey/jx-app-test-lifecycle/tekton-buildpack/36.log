@@ -1,0 +1,44 @@
+Step: build-step-credential-initializer-krlm8:
+
+{"level":"warn","ts":1554383431.5828428,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554383431.5852997,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-************-**-app-test-lifecy-jtb9b:
+
+{"level":"warn","ts":1554383433.2800162,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554383434.9777813,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/************/**-app-test-lifecycle\" @ \"v0.0.10\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+81d390e9c: No Major.Minor.Patch elements found
+time="2019-04-04T13:10:37Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-setup-**-git-credentials:
+
+Generated Git credentials file /builder/home/git/credentials
+Step: build-step-build-build:
+
+GO111MODULE=on GO15VENDOREXPERIMENT=1 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '' -o build/**-app-test-lifecycle cmd/main.go
+GO111MODULE=on GO15VENDOREXPERIMENT=1 CGO_ENABLED=0 go test -v github.com/jenkins-x-apps/**-app-test-lifecycle/cmd 
+?   	github.com/jenkins-x-apps/**-app-test-lifecycle/cmd	[no test files]
+Step: build-step-build-tag:
+
+sed -i -e "s/version:.*/version: 0.0.10/" Chart.yaml
+sed -i -e "s/tag: .*/tag: 0.0.10/" values.yaml
+Step: build-step-build-helm-build:
+
+No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
+Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository releases.
+Step: build-step-build-helm-version:
+
+Modified file Chart.yaml to set the chart to version 36
+Step: build-step-source-mkdir-************-**-app-test-lifecy-c7n9f:
+
+{"level":"warn","ts":1554383457.9985301,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554383458.015626,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /pvc/from-build-pack/workspace\""}
+Step: build-step-source-copy-************-**-app-test-lifecy-fkpwg:
+
+{"level":"warn","ts":1554383459.3732357,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554383459.3952544,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"cp -r /workspace/source/. /pvc/from-build-pack/workspace\""}
