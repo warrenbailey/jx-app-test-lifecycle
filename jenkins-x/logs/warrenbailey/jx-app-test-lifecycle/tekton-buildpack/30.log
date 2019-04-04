@@ -1,0 +1,34 @@
+Step: build-step-credential-initializer-7fz65:
+
+{"level":"warn","ts":1554373757.5197904,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554373757.5204425,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-************-**-app-test-lifecy-gbzwm:
+
+{"level":"warn","ts":1554373758.4645903,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554373759.5854552,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/************/**-app-test-lifecycle\" @ \"tekton-buildpack\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+81d390e9c: No Major.Minor.Patch elements found
+time="2019-04-04T10:29:21Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-build-build:
+
+GO111MODULE=on GO15VENDOREXPERIMENT=1 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '' -o build/**-app-test-lifecycle cmd/main.go
+GO111MODULE=on GO15VENDOREXPERIMENT=1 CGO_ENABLED=0 go test -v github.com/jenkins-x-apps/**-app-test-lifecycle/cmd 
+?   	github.com/jenkins-x-apps/**-app-test-lifecycle/cmd	[no test files]
+Step: build-step-build-helm-build:
+
+No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
+Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository releases.
+Step: build-step-source-mkdir-************-**-app-test-lifecy-czrnj:
+
+{"level":"warn","ts":1554373777.7249265,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554373777.75045,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /pvc/from-build-pack/workspace\""}
+Step: build-step-source-copy-************-**-app-test-lifecy-ccb5g:
+
+{"level":"warn","ts":1554373778.7726305,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554373778.7969162,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"cp -r /workspace/source/. /pvc/from-build-pack/workspace\""}
