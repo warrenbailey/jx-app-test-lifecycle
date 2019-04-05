@@ -43,4 +43,4 @@ pipelineConfig:
               - command: make
                 args:
                   - release
-                  - DOCKER_REGISTRY=docker.io"
+                  - DOCKER_REGISTRY=docker.io
