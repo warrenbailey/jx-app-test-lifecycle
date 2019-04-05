@@ -80,7 +80,6 @@ release-branch:  ## Creates release branch and pushes release
 	git add --all
 	git commit -m "release $(VERSION)" --allow-empty # if first release then no version update is performed
 	git tag -fa v$(VERSION) -m "Release version $(VERSION)"
-	git push origin HEAD v$(VERSION)
 
 # Targets to get some Go tools
 $(FGT):
