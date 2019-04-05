@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: jenkinsxio/jx-app-test-lifecycle
-  tag: 0.0.0-SNAPSHOT
+  repository: 10.3.246.68:5000/warrenbailey/jx-app-test-lifecycle
+  tag: 0.0.12
   pullPolicy: IfNotPresent
 service:
   name: jx-app-test-lifecycle
